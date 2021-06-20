@@ -37,24 +37,11 @@ class App extends Component {
   reload(){
     console.log("reload is called");
     this.fetchData();
-    // this.setState({
-    //     isLoaded : false
-    // })
   }
 
   render(){
-    var {isLoaded, pi, sunCircumference} = this.state;
+    var {pi, sunCircumference} = this.state;
 
-    // if(!isLoaded)
-    // {
-    //   this.fetchData();
-    //   return(
-    //       <>
-    //           <p>data is loading</p>
-    //       </>
-    //   );
-    // }
-    // else 
     return(
       <div className="App">
       <header className="App-header">
