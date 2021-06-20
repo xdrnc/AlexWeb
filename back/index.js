@@ -4,6 +4,7 @@ const cors = require('cors')
 const port = 2999
 
 const PI4 = require('./CalculatePI4');
+const { RSA_NO_PADDING } = require('constants');
 
 const sunRadiusKM = 696340;
 var LimitofPiDecimal = 10;
@@ -70,8 +71,9 @@ piIncreaseDecimal = () => {
 
 
 app.get('/calculate', cors(), (req, res) => {
-  
-  if((req.headers.origin != null) && req.headers.origin.includes("http://localhost:3000"))
+  if((req.headers != null) 
+  && (req.headers.origin != null) 
+  && req.headers.origin === "http://localhost:3000")
   {
     var result = {
         pi: piIncreaseDecimal(),
@@ -84,10 +86,13 @@ app.get('/calculate', cors(), (req, res) => {
       LimitofPiDecimal += 10;
       forceCacheRefresh = true;
     }
-
+    
     res.json(result);
   }
+  else
+  {
     res.send("only certain client is allowed to access");
+  }
 })
 
 app.listen(port, () => {
