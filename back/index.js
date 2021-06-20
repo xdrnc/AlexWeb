@@ -4,7 +4,6 @@ const cors = require('cors')
 const port = 2999
 
 const PI4 = require('./CalculatePI4');
-const { RSA_NO_PADDING } = require('constants');
 
 const sunRadiusKM = 696340;
 var LimitofPiDecimal = 10;
@@ -46,24 +45,19 @@ class DataCache {
 }
 
 
-//alextodo return the string of the current pi value with the length based on the current limit of decimal point
+// return the string of the current pi value with the length based on the current limit of decimal point
 calcPiValue = () => {
-  console.log("call calc pi value, expect to call this at either the first request or after the decimal limit has been reached/renewed");
-
   var currentPi = PI4.calcPi(LimitofPiDecimal);
-
   return currentPi;
 }
 var piValue = new DataCache(calcPiValue);
 
 
-// alextodo: increase index of string based on "currentPiDecimal" value
+// increase index of string based on "currentPiDecimal" value
 piIncreaseDecimal = () => {
   if(currentProcessedPi.length < 30)
   {
-    console.log("inc decimal call piValue getData");
     let totalPiInString = piValue.getData();
-    console.log("totalPiInString: ", totalPiInString);
     currentProcessedPi = currentProcessedPi + totalPiInString[currentPiDecimal+2]; 
   }
   return currentProcessedPi;
