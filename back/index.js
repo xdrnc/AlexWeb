@@ -46,7 +46,7 @@ class DataCache {
 //alextodo return the string of the current pi value with the length based on the current limit of decimal point
 calcPiValue = () => {
   console.log("call calc pi value, expect to call this at either the first request or after the decimal limit has been reached/renewed");
-  var currentPi = 3.1400012345678912345678912341324134;
+  var currentPi = "3.1400012345678912345678912341324134";
   // alextodo: 3.140001234567891undefinedundefinedundefinedundefinedundefined
   //           3.141234567891235 limit from js for decimal point (https://www.w3schools.com/js/tryit.asp?filename=tryjs_numbers1)
   // consider 
