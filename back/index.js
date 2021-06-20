@@ -4,6 +4,8 @@ const cors = require('cors')
 const port = 2999
 
 const sunRadiusKM = 696340;
+var currentPiDecimal = 2;
+var LimitofPiDecimal = 1000;
 
 
 class DataCache {
@@ -41,11 +43,14 @@ class DataCache {
 
 //var piData = new Data
 
+
 app.get('/calculate', cors(), (req, res) => {
+  console.log("current decimal: ", currentPiDecimal);
     var result = {
         pi: 3.14,
         sunCircumference: 2 * 3.14 * sunRadiusKM
     };
+  currentPiDecimal = currentPiDecimal + 1;
     res.json(result);
 })
 

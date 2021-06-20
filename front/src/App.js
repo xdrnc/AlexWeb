@@ -4,7 +4,9 @@ import './App.css';
 
 class App extends Component {
   constructor(props){
+    console.log("ctor called");
       super(props);
+      this.reload = this.reload.bind(this);
 
       this.state = {
           isLoaded: false,
@@ -15,7 +17,11 @@ class App extends Component {
 
   componentDidMount(){
       console.log("compoennt did mount called");
-
+  }
+  
+  fetchData()
+  {
+      console.log("fetchData called");
       fetch('http://localhost:2999/calculate')
       .then(res => res.json())
       .then(json => {
@@ -25,38 +31,41 @@ class App extends Component {
               sunCircumference: json.sunCircumference,
           })
       });
+
   }
-  
+
+  reload(){
+    console.log("reload is called");
+    this.fetchData();
+    // this.setState({
+    //     isLoaded : false
+    // })
+  }
+
   render(){
     var {isLoaded, pi, sunCircumference} = this.state;
 
-    if(!isLoaded)
-    {
-        return(
-            <>
-                <p>data is loading</p>
-            </>
-        );
-    }
-    else return(
+    // if(!isLoaded)
+    // {
+    //   this.fetchData();
+    //   return(
+    //       <>
+    //           <p>data is loading</p>
+    //       </>
+    //   );
+    // }
+    // else 
+    return(
       <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <button onClick={this.reload}>calculate</button>
+        
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <br/>
           pi: {pi}
           <br/>
-          sun sunCircumference: {sunCircumference}
+          sun Circumference: {sunCircumference}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React alextest
-        </a>
       </header>
     </div>
     );
