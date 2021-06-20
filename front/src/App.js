@@ -11,7 +11,7 @@ class App extends Component {
       this.state = {
           isLoaded: false,
           pi: 0,
-          sunCircumference: 0,
+          sunCircumferenceKM: 0,
       }
   }
 
@@ -28,7 +28,7 @@ class App extends Component {
           this.setState({
               isLoaded: true,
               pi: json.pi,
-              sunCircumference: json.sunCircumference,
+              sunCircumferenceKM: json.sunCircumferenceKM,
           })
       });
 
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   render(){
-    var {pi, sunCircumference} = this.state;
+    var {pi, sunCircumferenceKM} = this.state;
 
     return(
       <div className="App">
@@ -51,35 +51,12 @@ class App extends Component {
         <p>
           pi: {pi}
           <br/>
-          sun Circumference: {sunCircumference}
+          sun Circumference: {sunCircumferenceKM} in KM.
         </p>
       </header>
     </div>
     );
   }
 }
-
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
 
 export default App;

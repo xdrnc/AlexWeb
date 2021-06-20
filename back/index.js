@@ -7,7 +7,6 @@ const sunRadiusKM = 696340;
 var currentPiDecimal = 2;
 var LimitofPiDecimal = 10;
 
-
 class DataCache {
     constructor(fetchFunction, minutesToLive = 10) {
       this.millisecondsToLive = minutesToLive * 60 * 1000;
@@ -41,14 +40,26 @@ class DataCache {
     }
 }
 
-//var piData = new Data
 
+// return the string of the current pi value based on the current limit of decimal point
+calcPiValue = () => {
+  return 3.14;
+}
+
+var piValue = new DataCache(calcPiValue);
+
+// increase index of string 
+piIncDecimal = () => {
+
+}
 
 app.get('/calculate', cors(), (req, res) => {
 //  console.log("current decimal: ", currentPiDecimal);
+    
+
     var result = {
         pi: 3.14,
-        sunCircumference: 2 * 3.14 * sunRadiusKM
+        sunCircumferenceKM: 2 * 3.14 * sunRadiusKM
     };
   
   currentPiDecimal ++;
