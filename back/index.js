@@ -47,7 +47,7 @@ class DataCache {
 
 // return the string of the current pi value with the length based on the current limit of decimal point
 calcPiValue = () => {
-  var currentPi = PI4.calcPi(LimitofPiDecimal);
+  var currentPi = PI4.calcPi(LimitofPiDecimal); // 3.
   return currentPi;
 }
 var piValue = new DataCache(calcPiValue);
@@ -57,7 +57,7 @@ var piValue = new DataCache(calcPiValue);
 piIncreaseDecimal = () => {
   if(currentProcessedPi.length < 30)
   {
-    let totalPiInString = piValue.getData();
+    let totalPiInString = piValue.getData(); 
     currentProcessedPi = currentProcessedPi + totalPiInString[currentPiDecimal+2]; 
   }
   return currentProcessedPi;
