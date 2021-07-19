@@ -1,5 +1,5 @@
 # Increase Decimal Point in PI
-Node + React
+Cache around PI decimal, written in Node + React
 
 1. please run npm install
 
