@@ -1,4 +1,6 @@
-# AlexWeb
+# Increase Decimal Point in PI
+Node + React
+
 1. please run npm install
 
 2. from the current directory
